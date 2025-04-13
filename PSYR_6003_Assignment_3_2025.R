@@ -1,11 +1,11 @@
 #housekeeping stuff
-library(ggplot2)
 library(flexplot)
 library(tidyverse)
 library(haven)
 library(performance)
 library(lmerTest)
 library(lme4)
+library(apaTables)
 #P6003_A4 <- read_sav("P6003.A4.sav")#load in data
 View(P6003_A4)
 
@@ -18,7 +18,6 @@ flexplot(tipm.N~1, data= P6003_A4)#roughly normally distributed. Quite positivel
 baseline<- lme4::lmer(swl~1+(1|id), data = P6003_A4)#using lme4::lmer because estimates won't run properly without it.  
 summary(baseline)
 icc(baseline)
-visualize(baseline, plot = "model")
 
 ################## Hypothesis Testing ##################
 
